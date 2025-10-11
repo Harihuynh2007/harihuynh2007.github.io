@@ -156,7 +156,8 @@ Chi tiết tại `test-cases/test-cases.md`
 - HTML5 Audio API
 - HTML5 Drag and Drop API
 - JSON (mock database)
-
+- CSDL mô phỏng: MySQL 8+ schema
+- JSON mock data
 ## 📝 Quy tắc nghiệp vụ
 
 1. **Unique track in playlist:** Một bài hát chỉ xuất hiện 1 lần trong mỗi playlist
