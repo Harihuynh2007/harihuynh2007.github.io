@@ -3,13 +3,13 @@
 Báo cáo kiểm tra giữa kỳ - Nhập môn Công nghệ Phần mềm
 
 ## 📋 Thông tin sinh viên
-- **Họ tên:** [Tên của bạn]
-- **MSSV:** [MSSV]
-- **Lớp:** [Lớp]
+- **Họ tên:** Huỳnh Minh Hải
+- **MSSV:** N18DCCN053
+- **Ngày nộp:** 11/10/2025
 
 ## 🚀 Xem báo cáo
 
-**GitHub Pages:** [https://[username].github.io/music-streaming-spec](https://[username].github.io/music-streaming-spec)
+**GitHub Pages:** [https://harihuynh2007.github.io/music-streaming-spec](https://harihuynh2007.github.io/music-streaming-spec)
 
 **Hoặc mở file:** `index.html`
 
@@ -17,141 +17,28 @@ Báo cáo kiểm tra giữa kỳ - Nhập môn Công nghệ Phần mềm
 
 ```
 music-streaming-spec/
-├── index.html                  # Trang tổng hợp (BẮT BUỘC)
-├── README.md                   # File JSON: `prototype/data/seed-data.json`
-
-## ✨ Tính năng đã implement
-
-### Audio Player
-- ✅ Play/Pause/Stop
-- ✅ Seek bar (tua bài)
-- ✅ Volume control
-- ✅ Next/Previous track
-- ✅ Shuffle mode
-- ✅ Repeat mode
-- ✅ Display current time / duration
-
-### Core Features
-- ✅ Search (có dấu + không dấu tiếng Việt)
-- ✅ Like/Unlike tracks (toggle)
-- ✅ Play history logging (mock 30s rule)
-- ✅ Drag-drop playlist ordering
-- ✅ Follow artist
-- ✅ Admin CRUD interface
-
-## 📊 Test Cases
-
-Tổng số: **15 test cases**
-
-**Nhóm chính:**
-- Playlist Management (TC-01, TC-02)
-- Like/Favorite (TC-03, TC-04)
-- Search (TC-05, TC-06, TC-07)
-- Play History/Scrobble (TC-08, TC-09, TC-10)
-- Permissions (TC-11, TC-12)
-- Audio Player (TC-13, TC-14, TC-15)
-
-Xem chi tiết: `test-cases/test-cases.md`
-
-## 🎬 Video Demo
-
-**Thời lượng:** 3-5 phút
-
-**Nội dung:**
-1. Giới thiệu hệ thống
-2. Phát nhạc (play/pause/seek/volume)
-3. Tìm kiếm không dấu
-4. Quản lý playlist (drag-drop)
-5. Trang Artist/Album
-6. Admin panel CRUD
-
-File: `demo/video-demo.mp4`
-
-## 🔧 Công nghệ sử dụng
-
-- **Frontend:** HTML5, Tailwind CSS, Vanilla JavaScript
-- **Audio:** HTML5 `<audio>` API
-- **Drag & Drop:** HTML5 Drag and Drop API
-- **Data:** JSON file (mock database)
-
-## 📝 Business Rules
-
-1. **Unique track in playlist**: Một bài hát chỉ xuất hiện 1 lần trong mỗi playlist
-2. **Scrobble rule**: Lịch sử nghe chỉ ghi khi play ≥ 30 giây hoặc next sau ≥ 30s
-3. **Like toggle**: Click Like lần 2 = Unlike
-4. **Playlist visibility**: Private playlist chỉ owner thấy được
-5. **Cascade delete**: Xóa Artist → tự động xóa Album + Track
-
-## 🎯 Thang điểm
-
-| Phần | Nội dung | Điểm |
-|------|----------|------|
-| 3.1 | Use Case + mô tả luồng | 15% |
-| 3.2 | Sequence Diagrams | 10% |
-| 3.3 | ER Diagram | 12.5% |
-| 3.4 | ERD (Logical/Physical) | 12.5% |
-| **3.5** | **Prototype UI** | **20%** ⭐ |
-| **3.6** | **Test cases** | **20%** ⭐ |
-| **3.7** | **Demo video** | **(trong 3.5)** |
-| **3.8** | **GitHub HTML** | **10%** ⭐ |
-
-**Phần của bạn: 50%** (3.5 + 3.6 + 3.8)
-
-## 📸 Screenshots
-
-### Home/Discover
-![Home](./screenshots/home.png)
-
-### Player Mini
-![Player](./screenshots/player.png)
-
-### Search
-![Search](./screenshots/search.png)
-
-### Playlist Detail
-![Playlist](./screenshots/playlist.png)
-
-### Artist Page
-![Artist](./screenshots/artist.png)
-
-### Admin Panel
-![Admin](./screenshots/admin.png)
-
-## 🔗 Links
-
-- **GitHub Repo:** [https://github.com/[username]/music-streaming-spec](https://github.com/[username]/music-streaming-spec)
-- **GitHub Pages:** [https://[username].github.io/music-streaming-spec](https://[username].github.io/music-streaming-spec)
-- **Prototype:** [./prototype/index.html](./prototype/index.html)
-- **Video Demo:** [./demo/video-demo.mp4](./demo/video-demo.mp4)
-
-## 📞 Liên hệ
-
-- Email: [email@student.hcmus.edu.vn]
-- GitHub: [@username]
-
----
-
-**Lưu ý:** Phần 3.1-3.4 (diagrams) do thành viên khác phụ trách, sẽ được cập nhật vào thư mục `/diagrams/` này
+├── index.html                  
+├── README.md                   
 │
-├── diagrams/                   # Phần 3.1-3.4 (người khác làm)
+├── diagrams/                   
 │   ├── use-case-diagram.png
 │   ├── sequence-play-track.png
 │   ├── sequence-add-to-playlist.png
 │   ├── er-diagram.png
 │   └── erd-physical.png
 │
-├── prototype/                  # Phần 3.5 (bạn làm)
-│   ├── index.html             # Prototype 5 màn hình
+├── prototype/                  
+│   ├── index.html             
 │   └── data/
-│       └── seed-data.json     # Dữ liệu mẫu
+│       └── seed-data.json     
 │
-├── test-cases/                 # Phần 3.6 (bạn làm)
-│   └── test-cases.md          # 15 test cases
+├── test-cases/                 
+│   └── test-cases.md          
 │
-├── demo/                       # Phần 3.7 (bạn làm)
-│   └── video-demo.mp4         # Video demo 3-5 phút
+├── demo/                       
+│   └── video-demo.mp4         
 │
-└── screenshots/                # Ảnh chụp màn hình
+└── screenshots/                
     ├── home.png
     ├── player.png
     ├── search.png
@@ -160,45 +47,143 @@ File: `demo/video-demo.mp4`
     └── admin.png
 ```
 
-## 🎯 Deliverables
+## 🎯 Nội dung báo cáo
 
-### ✅ Đã hoàn thành (3.5 - 3.8)
+### 3.1 Use Case Diagram
+Mô tả đầy đủ các actor (User, Admin, Audio CDN/Player) và use case chính của hệ thống bao gồm đăng nhập, tìm kiếm, phát nhạc, quản lý playlist, yêu thích, theo dõi nghệ sĩ và các chức năng quản trị.
 
-- [x] **3.5 Prototype UI** - 5 màn hình với audio player hoạt động
-- [x] **3.6 Test cases** - 15 test cases với business rules
-- [x] **3.7 Demo** - Video demo 3-5 phút
-- [x] **3.8 GitHub** - Báo cáo HTML tổng hợp
+### 3.2 Sequence Diagrams
+Hai kịch bản chính:
+- **SD-01:** Phát nhạc một bài với luồng User → WebApp → Player → TrackService → Audio CDN
+- **SD-02:** Thêm bài vào Playlist với kiểm tra trùng lặp và cập nhật SortOrder
 
-### ⏳ Đang chờ (3.1 - 3.4 - người khác làm)
+### 3.3 ER Diagram
+Sơ đồ thực thể kết hợp gồm 10 thực thể: User, Artist, Album, Track, Genre, Playlist, PlaylistTrack, Like, Follow, PlayHistory với đầy đủ cardinality và ràng buộc.
 
-- [ ] 3.1 Use Case Diagram
-- [ ] 3.2 Sequence Diagrams (2 kịch bản)
-- [ ] 3.3 ER Diagram
-- [ ] 3.4 ERD (Logical/Physical)
+### 3.4 ERD (Logical/Physical)
+Schema cơ sở dữ liệu với kiểu dữ liệu PostgreSQL/MySQL, INDEX cho tối ưu tìm kiếm, khóa tổng hợp và các ràng buộc FK CASCADE.
+
+### 3.5 Prototype UI
+5 màn hình chính:
+- **Home/Discover:** Trang chủ với đề xuất bài hát, album, playlist
+- **Player Mini + Track Detail:** Thanh player cố định với controls đầy đủ
+- **Search:** Tìm kiếm hỗ trợ có dấu/không dấu tiếng Việt
+- **Playlist Detail:** Quản lý playlist với drag-drop sắp xếp
+- **Artist/Album Page:** Trang nghệ sĩ với danh sách bài hát và album
+- **Admin Panel:** Giao diện CRUD nghệ sĩ/album/bài hát/thể loại
+
+### 3.6 Test Cases & Business Rules
+15 test cases chi tiết bao gồm:
+- Quản lý playlist (thêm bài trùng, drag-drop)
+- Like/Unlike tracks
+- Tìm kiếm tiếng Việt
+- Play history (quy tắc 30 giây)
+- Phân quyền và CASCADE delete
+
+### 3.7 Demo Video
+Video demo 3-5 phút minh họa các luồng chính: phát nhạc, tìm kiếm, quản lý playlist, trang nghệ sĩ, và admin panel.
+
+### 3.8 Báo cáo HTML trên GitHub
+Trang index.html tổng hợp đầy đủ các diagram, prototype, test cases và video demo với GitHub Pages.
 
 ## 🎮 Chạy prototype
 
 ### Cách 1: Mở trực tiếp
-```bash
-# Mở file prototype/index.html bằng trình duyệt
-```
+Mở file `prototype/index.html` bằng trình duyệt web.
 
-### Cách 2: Local server (khuyến khích)
+### Cách 2: Local server
 ```bash
-# Python 3
 cd prototype
 python -m http.server 8000
-
-# Hoặc dùng Live Server extension (VS Code)
 ```
-
 Truy cập: `http://localhost:8000`
 
 ## 🎵 Dữ liệu mẫu
 
-- **10 nghệ sĩ**: Sơn Tùng M-TP, Hòa Minzy, Đen Vâu, Mỹ Tâm, HIEUTHUHAI...
-- **20 bài hát**: Lạc Trôi, Nơi Này Có Anh, Rời Bỏ, Mơ...
-- **5 album**: m-tp M-TP, Rời Bỏ, Mơ...
-- **5 playlist**: Top Hits Việt 2024, Chill Vibes...
+- **10 nghệ sĩ:** Sơn Tùng M-TP, Hòa Minzy, Đen Vâu, Mỹ Tâm, HIEUTHUHAI, Chi Pu, Bích Phương, Erik, Amee, Vũ.
+- **20 bài hát:** Lạc Trôi, Nơi Này Có Anh, Rời Bỏ, Mơ, Đưa Nhau Đi Trốn, Chúng Ta Của Hiện Tại, 3107, Ngủ Một Mình...
+- **5 album:** m-tp M-TP, Rời Bỏ, Mơ, Tâm 9, Ai Cũng Phải Bắt Đầu Từ Đâu Đó
+- **5 playlist:** Top Hits Việt 2024, Chill Vibes, My Favorites, Workout Mix, Late Night Vibes
 
-File
+## ✨ Tính năng đã implement
+
+### Audio Player
+- Play/Pause/Stop
+- Seek bar
+- Volume control
+- Next/Previous track
+- Shuffle mode
+- Repeat mode
+- Display current time/duration
+
+### Core Features
+- Search (có dấu + không dấu tiếng Việt)
+- Like/Unlike tracks
+- Play history logging (quy tắc 30 giây)
+- Drag-drop playlist ordering
+- Follow artist
+- Admin CRUD interface
+
+## 📊 Test Cases
+
+**Tổng số:** 15 test cases
+
+**Phân loại:**
+- Playlist Management: TC-01, TC-02
+- Like/Favorite: TC-03, TC-04
+- Search: TC-05, TC-06, TC-07
+- Play History: TC-08, TC-09, TC-10
+- Permissions: TC-11, TC-12
+- Audio Player: TC-13, TC-14, TC-15
+
+Chi tiết tại `test-cases/test-cases.md`
+
+## 🎬 Video Demo
+
+**Thời lượng:** 3-5 phút
+
+**Nội dung:**
+- Giới thiệu hệ thống và layout
+- Phát nhạc với các controls
+- Tìm kiếm không dấu tiếng Việt
+- Quản lý playlist với drag-drop
+- Trang Artist/Album với Follow/Like
+- Admin panel CRUD
+
+## 🔧 Công nghệ sử dụng
+
+- HTML5, Tailwind CSS, Vanilla JavaScript
+- HTML5 Audio API
+- HTML5 Drag and Drop API
+- JSON (mock database)
+
+## 📝 Quy tắc nghiệp vụ
+
+1. **Unique track in playlist:** Một bài hát chỉ xuất hiện 1 lần trong mỗi playlist
+2. **Scrobble rule:** Lịch sử nghe chỉ ghi khi play ≥ 30 giây hoặc next sau ≥ 30s
+3. **Like toggle:** Click Like lần 2 sẽ Unlike
+4. **Playlist visibility:** Playlist private chỉ owner nhìn thấy
+5. **Cascade delete:** Xóa Artist sẽ tự động xóa Album và Track liên quan
+
+## 📸 Screenshots
+
+Tất cả screenshots được lưu trong thư mục `screenshots/`:
+- home.png - Trang chủ/Discover
+- player.png - Player Mini
+- search.png - Tìm kiếm
+- playlist.png - Chi tiết Playlist
+- artist.png - Trang Nghệ sĩ
+- admin.png - Admin Panel
+
+## 🔗 Links
+
+- **GitHub Repo:** [https://github.com/Harihuynh2007/music-streaming-spec](https://github.com/Harihuynh2007/music-streaming-spec)
+- **GitHub Pages:** [https://harihuynh2007.github.io/music-streaming-spec](https://harihuynh2007.github.io/music-streaming-spec)
+- **Prototype:** [./prototype/index.html](./prototype/index.html)
+- **Video Demo:** [./demo/video-demo.mp4](./demo/video-demo.mp4)
+
+## 📞 Liên hệ
+
+- **Sinh viên:** Huỳnh Minh Hải
+- **MSSV:** N18DCCN053
+- **GitHub:** [@Harihuynh2007](https://github.com/Harihuynh2007)
