@@ -145,27 +145,51 @@
             </div>
         </section>
 
-        <!-- 4. ERD -->
+        <!-- 4. ERD (Logical/Physical Database) -->
         <section id="erd" class="bg-white p-6 rounded-lg shadow mb-8">
-            <h2 class="text-2xl font-bold mb-4 text-purple-600">4️⃣ ERD (Logical/Physical Database)</h2>
-            <p class="text-gray-600 mb-4">Schema cơ sở dữ liệu với kiểu dữ liệu, INDEX, và ràng buộc FK</p>
-            
+            <h2 class="text-2xl font-bold mb-4 text-purple-600">4️⃣ ERD (Logical/Physical Database - MySQL)</h2>
+            <p class="text-gray-700 mb-4">
+                Sơ đồ cơ sở dữ liệu vật lý mô tả cấu trúc <strong>Music Streaming Web App</strong> bao gồm 10 bảng chính,
+                khóa chính/phụ, và các quan hệ 1–N, N–N giữa User, Artist, Track, Playlist, Like, Follow, và PlayHistory.
+            </p>
+
+            <!-- Hình ERD -->
             <div class="bg-gray-100 p-4 rounded mb-4">
-                <img src="./diagrams/erd-physical.png" alt="ERD Physical" class="w-full">
+                <img src="./diagrams/er-diagram.png" alt="ERD Diagram - Music Streaming App" class="w-full rounded shadow-md">
+                <p class="text-xs text-gray-500 mt-2 text-center">
+                <em>Hình 4.1 – ERD Logical/Physical Database (MySQL 8+)</em><br>
+                Các quan hệ chính: User–Playlist, Artist–Album–Track, Playlist–Track, Like, Follow, PlayHistory.
+                </p>
             </div>
 
-            <div class="bg-red-50 p-4 rounded">
-                <h4 class="font-bold mb-2">⚠️ Ràng buộc quan trọng</h4>
-                <ul class="text-sm space-y-1">
-                    <li>• <code>UNIQUE(User.Email)</code> - Email không trùng lặp</li>
-                    <li>• <code>CHECK(Track.Duration > 0)</code> - Thời lượng hợp lệ</li>
-                    <li>• <code>FK ON DELETE CASCADE</code> - PlaylistTrack, Like, Follow</li>
-                    <li>• <code>INDEX(Track.Title)</code> - Tối ưu tìm kiếm</li>
-                    <li>• <code>INDEX(Artist.Name)</code> - Tối ưu tìm kiếm</li>
-                    <li>• <code>COMPOSITE KEY(PlaylistID, TrackID)</code> - PlaylistTrack</li>
+            <!-- Liên kết tải SQL -->
+            <div class="bg-green-50 border-l-4 border-green-600 p-4 rounded mb-4">
+                <h4 class="font-bold mb-2 text-green-700">💾 File SQL Schema (MySQL)</h4>
+                <p class="text-sm text-gray-700">
+                File SQL định nghĩa cơ sở dữ liệu MySQL 8+, bao gồm đầy đủ <strong>CREATE TABLE</strong>,
+                <strong>FOREIGN KEY</strong>, <strong>CHECK</strong>, <strong>INDEX</strong> và <strong>CASCADE DELETE</strong>.
+                </p>
+                <p class="text-sm text-gray-700 mt-2">
+                📄 <a href="./sql/database_schema_mysql.sql" class="text-blue-600 hover:underline font-semibold">
+                    Tải file database_schema_mysql.sql
+                </a>
+                </p>
+            </div>
+
+            <!-- Ghi chú quan trọng -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
+                <h4 class="font-bold mb-2 text-yellow-800">📌 Ràng buộc & Chỉ mục chính</h4>
+                <ul class="text-sm text-gray-700 list-disc pl-6 space-y-1">
+                <li><strong>UNIQUE(User.Email)</strong> – Đảm bảo email không trùng lặp.</li>
+                <li><strong>CHECK(Track.Duration &gt; 0)</strong> – Bài hát phải có thời lượng hợp lệ.</li>
+                <li><strong>FK ON DELETE CASCADE</strong> – Áp dụng cho PlaylistTrack, Like, Follow, PlayHistory.</li>
+                <li><strong>COMPOSITE KEY(PlaylistID, TrackID)</strong> – Một bài hát chỉ xuất hiện một lần trong playlist.</li>
+                <li><strong>INDEX(Track.Title, Artist.Name)</strong> – Tối ưu hiệu năng tìm kiếm.</li>
+                <li><strong>ENUM visibility('public','private')</strong> – Quản lý quyền truy cập playlist.</li>
                 </ul>
             </div>
         </section>
+
 
         <!-- 5. Prototype UI -->
         <section id="prototype" class="bg-white p-6 rounded-lg shadow mb-8">
