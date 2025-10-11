@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Streaming Web App - Báo cáo giữa kỳ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="max-w-6xl mx-auto p-8">
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-8 rounded-lg mb-8">
+            <h1 class="text-4xl font-bold mb-2">🎵 Music Streaming Web App</h1>
+            <p class="text-xl">Báo cáo kiểm tra giữa kỳ - Nhập môn Công nghệ Phần mềm</p>
+            <div class="mt-4 flex gap-4">
+                <span>👤 <strong>Sinh viên:</strong> Huỳnh Minh Hải </span>
+                <span>🆔 <strong>MSSV:</strong> N18DCCN053</span>
+                <span>📅 <strong>Ngày nộp:</strong> 20/07/2000 </span>
+            </div>
+        </header>
+
+        <!-- Mục lục -->
+        <nav class="bg-white p-6 rounded-lg shadow mb-8">
+            <h2 class="text-2xl font-bold mb-4">📋 Mục lục</h2>
+            <ul class="space-y-2">
+                <li><a href="#usecase" class="text-blue-600 hover:underline">1. Use Case Diagram</a></li>
+                <li><a href="#sequence" class="text-blue-600 hover:underline">2. Sequence Diagrams</a></li>
+                <li><a href="#er" class="text-blue-600 hover:underline">3. ER Diagram</a></li>
+                <li><a href="#erd" class="text-blue-600 hover:underline">4. ERD (Logical/Physical)</a></li>
+                <li><a href="#prototype" class="text-blue-600 hover:underline">5. Prototype UI (5 màn hình)</a></li>
+                <li><a href="#testcases" class="text-blue-600 hover:underline">6. Test Cases & Business Rules</a></li>
+                <li><a href="#demo" class="text-blue-600 hover:underline">7. Video Demo</a></li>
+                <li><a href="#data" class="text-blue-600 hover:underline">8. Seed Data</a></li>
+            </ul>
+        </nav>
+
+        <!-- 1. Use Case Diagram -->
+        <section id="usecase" class="bg-white p-6 rounded-lg shadow mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-purple-600">1️⃣ Use Case Diagram</h2>
+            <p class="text-gray-600 mb-4">Mô tả đầy đủ các actor và use case chính của hệ thống</p>
+            
+            <div class="bg-gray-100 p-4 rounded mb-4">
+                <img src="./diagrams/use-case-diagram.png" alt="Use Case Diagram" class="w-full">
+                <p class="text-sm text-gray-500 mt-2 text-center">
+                    <em>Lưu ý: File ảnh được đặt trong thư mục /diagrams/</em>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                    <h4 class="font-bold">Actors</h4>
+                    <ul class="text-sm text-gray-600">
+                        <li>• User (Người dùng)</li>
+                        <li>• Admin (Quản trị viên)</li>
+                        <li>• Audio CDN/Player</li>
+                    </ul>
+                </div>
+                <div class="border-l-4 border-green-500 pl-4">
+                    <h4 class="font-bold">UC chính (User)</h4>
+                    <ul class="text-sm text-gray-600">
+                        <li>• Đăng nhập/Đăng ký</li>
+                        <li>• Tìm kiếm</li>
+                        <li>• Phát nhạc</li>
+                        <li>• Quản lý Playlist</li>
+                        <li>• Like/Follow</li>
+                    </ul>
+                </div>
+                <div class="border-l-4 border-red-500 pl-4">
+                    <h4 class="font-bold">UC quản trị</h4>
+                    <ul class="text-sm text-gray-600">
+                        <li>• CRUD Artist</li>
+                        <li>• CRUD Album</li>
+                        <li>• CRUD Track</li>
+                        <li>• CRUD Genre</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Sequence Diagrams -->
+        <section id="sequence" class="bg-white p-6 rounded-lg shadow mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-purple-600">2️⃣ Sequence Diagrams</h2>
+            
+            <h3 class="text-xl font-bold mb-3">SD-01: Phát nhạc một bài</h3>
+            <div class="bg-gray-100 p-4 rounded mb-4">
+                <img src="./diagrams/sequence-play-track.png" alt="Sequence Diagram - Play Track" class="w-full">
+            </div>
+            <div class="bg-blue-50 p-4 rounded mb-6">
+                <p class="text-sm"><strong>Luồng:</strong> User → WebApp → Player → TrackService → Audio CDN</p>
+                <p class="text-sm"><strong>Messages:</strong> selectTrack(), getTrackMeta(), initStream(), play(), scrobble()</p>
+            </div>
+
+            <h3 class="text-xl font-bold mb-3">SD-02: Thêm bài vào Playlist</h3>
+            <div class="bg-gray-100 p-4 rounded mb-4">
+                <img src="./diagrams/sequence-add-to-playlist.png" alt="Sequence Diagram - Add to Playlist" class="w-full">
+            </div>
+            <div class="bg-blue-50 p-4 rounded">
+                <p class="text-sm"><strong>Luồng:</strong> User → WebApp → PlaylistService → TrackService → DB</p>
+                <p class="text-sm"><strong>Messages:</strong> addTrack(playlistId, trackId), checkDuplicate(), updateSortOrder()</p>
+            </div>
+        </section>
+
+        <!-- 3. ER Diagram -->
+        <section id="er" class="bg-white p-6 rounded-lg shadow mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-purple-600">3️⃣ ER Diagram (Entity-Relationship)</h2>
+            <p class="text-gray-600 mb-4">10 thực thể với đầy đủ cardinality, khóa chính/phụ, và ràng buộc</p>
+            
+            <div class="bg-gray-100 p-4 rounded mb-4">
+                <img src="./diagrams/er-diagram.png" alt="ER Diagram" class="w-full">
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-green-50 p-4 rounded">
+                    <h4 class="font-bold mb-2">Thực thể chính (10)</h4>
+                    <ol class="text-sm space-y-1">
+                        <li>1. User</li>
+                        <li>2. Artist</li>
+                        <li>3. Album</li>
+                        <li>4. Track</li>
+                        <li>5. Genre</li>
+                        <li>6. Playlist</li>
+                        <li>7. PlaylistTrack</li>
+                        <li>8. Like</li>
+                        <li>9. Follow</li>
+                        <li>10. PlayHistory</li>
+                    </ol>
+                </div>
+                <div class="bg-yellow-50 p-4 rounded">
+                    <h4 class="font-bold mb-2">Quan hệ chính</h4>
+                    <ul class="text-sm space-y-1">
+                        <li>• User 1-N Playlist</li>
+                        <li>• Artist 1-N Album</li>
+                        <li>• Album 1-N Track</li>
+                        <li>• Playlist N-N Track (qua PlaylistTrack)</li>
+                        <li>• User N-N Track (Like)</li>
+                        <li>• User N-N Artist (Follow)</li>
+                        <li>• User 1-N PlayHistory</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. ERD -->
+        <section id="erd" class="bg-white p-6 rounded-lg shadow mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-purple-600">4️⃣ ERD (Logical/Physical Database)</h2>
+            <p class="text-gray-600 mb-4">Schema cơ sở dữ liệu với kiểu dữ liệu, INDEX, và ràng buộc FK</p>
+            
+            <div class="bg-gray-100 p-4 rounded mb-4">
+                <img src="./diagrams/erd-physical.png" alt="ERD Physical" class="w-full">
+            </div>
+
+            <div class="bg-red-50 p-4 rounded">
+                <h4 class="font-bold mb-2">⚠️ Ràng buộc quan trọng</h4>
+                <ul class="text-sm space-y-1">
+                    <li>• <code>UNIQUE(User.Email)</code> - Email không trùng lặp</li>
+                    <li>• <code>CHECK(Track.Duration > 0)</code> - Thời lượng hợp lệ</li>
+                    <li>• <code>FK ON DELETE CASCADE</code> - PlaylistTrack, Like, Follow</li>
+                    <li>• <code>INDEX(Track.Title)</code> - Tối ưu tìm kiếm</li>
+                    <li>• <code>INDEX(Artist.Name)</code> - Tối ưu tìm kiếm</li>
+                    <li>• <code>COMPOSITE KEY(PlaylistID, TrackID)</code> - PlaylistTrack</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 5. Prototype UI -->
+        <section id="prototype" class="bg-white p-6 rounded-lg shadow mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-purple-600">5️⃣ Prototype UI (5 màn hình)</h2>
+            
+            <div class="bg-blue-50 p-4 rounded mb-4">
+                <p class="text-center">
+                    <a href="./prototype/index.html" target="_blank" class="text-xl font-bold text-blue-600 hover:underline">
+                        🚀 Mở Prototype (Click-through)
+                    </a>
+                </p>
+                <p class="text-sm text-gray-600 text-center mt-2">Prototype HTML có audio player hoạt động đầy đủ</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="border rounded p-3">
+                    <img src="./screenshots/home.png" alt="Home" class="w-full mb-2 rounded">
+                    <h4 class="font-bold">A) Home/Discover</h4>
+                    <p class="text-sm text-gray-600">Trang chủ với đề xuất bài hát, album, playlist</p>
+                </div>
+                <div class="border rounded p-3">
+                    <img src="./screenshots/player.png" alt="Player" class="w-full mb-2 rounded">
+                    <h4 class="font-bold">B) Player Mini + Track Detail</h4>
+                    <p class="text-sm text-gray-600">Player cố định dưới cùng với controls đầy đủ</p>
+                </div>
+                <div class="border rounded p-3">
+                    <img src="./screenshots/search.png" alt="Search" class="w-full mb-2 rounded">
+                    <h4 class="font-bold">C) Search</h4>
+                    <p class="text-sm text-gray-600">Tìm kiếm có dấu/không dấu tiếng Việt</p>
+                </div>
+                <div class="border rounded p-3">
+                    <img src="./screenshots/playlist.png" alt="Playlist" class="w-full mb-2 rounded">
+                    <h4 class="font-bold">D) Playlist Detail</h4>
+                    <p class="text-sm text-gray-600">Drag-drop sắp xếp bài hát trong playlist</p>
+                </div>
+                <div class="border rounded p-3">
+                    <img src="./screenshots/artist.png" alt="Artist" class="w-full mb-2 rounded">
+                    <h4 class="font-bold">E) Artist/Album Page</h4>
+                    <p class="text-sm text-gray-600">Trang nghệ sĩ với danh sách bài hát, album</p>
+                </div>
+                <div class="border rounded p-3">
+                    <img src="./screenshots/admin.png" alt="Admin" class="w-full mb-2 rounded">
+                    <h4 class="font-bold">Bonus: Admin Panel</h4>
+                    <p class="text-sm text-gray-600">CRUD Artist/Album/Track/Genre</p>
+                </div>
+            </div>
+
+            <div class="bg-green-50 p-4 rounded">
+                <h4 class="font-bold mb-2">✅ Tính năng đã implement</h4>
+                <ul class="text-sm grid grid-cols-2 gap-2">
+                    <li>• ✅ Audio player (play/pause/seek)</li>
+                    <li>• ✅ Volume control</li>
+                    <li>• ✅ Shuffle/Repeat modes</li>
+                    <li>• ✅ Next/Previous track</li>
+                    <li>• ✅ Like/Unlike tracks</li>
+                    <li>• ✅ Search (có/không dấu)</li>
+                    <li>• ✅ Drag-drop playlist</li>
+                    <li>• ✅ Play history logging (mock)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 6. Test Cases -->
+        <section id="testcases" class="bg-white p-6 rounded-lg shadow mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-purple-600">6️⃣ Test Cases & Business Rules</h2>
+            
+            <div class="bg-yellow-50 p-4 rounded mb-4">
+                <h4 class="font-bold mb-2">📜 Quy tắc nghiệp vụ</h4>
+                <ol class="text-sm space-y-1">
+                    <li>1. Một bài hát chỉ xuất hiện <strong>1 lần</strong> trong playlist (UNIQUE constraint)</li>
+                    <li>2. Lịch sử nghe chỉ ghi khi play <strong>≥ 30 giây</strong> hoặc next sau ≥ 30s</li>
+                    <li>3. Like/Unlike toggle: click lần 2 = xóa like</li>
+                    <li>4. Playlist private chỉ owner nhìn thấy</li>
+                    <li>5. Admin xóa Artist → CASCADE xóa Album + Track</li>
+                </ol>
+            </div>
+
+            <table class="w-full text-sm border-collapse">
+                <thead class="bg-gray-800 text-white">
+                    <tr>
+                        <th class="p-2 border">ID</th>
+                        <th class="p-2 border">Tên Test Case</th>
+                        <th class="p-2 border">Mục đích</th>
+                        <th class="p-2 border">Expected Result</th>
+                        <th class="p-2 border">Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white">
+                        <td class="p-2 border">TC-01</td>
+                        <td class="p-2 border">Thêm bài trùng vào playlist</td>
+                        <td class="p-2 border">Kiểm tra UNIQUE constraint</td>
+                        <td class="p-2 border">Hiển thị lỗi "Bài đã có"</td>
+                        <td class="p-2 border text-center">🔴 High</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="p-2 border">TC-02</td>
+                        <td class="p-2 border">Sắp xếp playlist drag-drop</td>
+                        <td class="p-2 border">Kiểm tra UI + SortOrder</td>
+                        <td class="p-2 border">SortOrder cập nhật đúng</td>
+                        <td class="p-2 border text-center">🔴 High</td>
+                    </tr>
+                    <tr class="bg-white">
+                        <td class="p-2 border">TC-03</td>
+                        <td class="p-2 border">Like track lần đầu</td>
+                        <td class="p-2 border">Thêm Like</td>
+                        <td class="p-2 border">Icon đỏ, ghi DB</td>
+                        <td class="p-2 border text-center">🔴 High</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="p-2 border">TC-04</td>
+                        <td class="p-2 border">Unlike track (like lần 2)</td>
+                        <td class="p-2 border">Toggle logic</td>
+                        <td class="p-2 border">Icon outline, xóa DB</td>
+                        <td class="p-2 border text-center">🔴 High</td>
+                    </tr>
+                    <tr class="bg-white">
+                        <td class="p-2 border">TC-05</td>
+                        <td class="p-2 border">Search không dấu</td>
+                        <td class="p-2 border">Tìm kiếm tiếng Việt</td>
+                        <td class="p-2 border">Trả về kết quả đúng</td>
+                        <td class="p-2 border text-center">🟡 Medium</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="p-2 border">TC-08</td>
+                        <td class="p-2 border">Play < 30s không ghi lịch sử</td>
+                        <td class="p-2 border">Quy tắc scrobble</td>
+                        <td class="p-2 border">Không ghi PlayHistory</td>
+                        <td class="p-2 border text-center">🔴 High</td>
+                    </tr>
+                    <tr class="bg-white">
+                        <td class="p-2 border">TC-09</td>
+                        <td class="p-2 border">Play ≥ 30s ghi lịch sử</td>
+                        <td class="p-2 border">Quy tắc scrobble</td>
+                        <td class="p-2 border">Ghi vào PlayHistory</td>
+                        <td class="p-2 border text-center">🔴 High</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="p-2 border">TC-12</td>
+                        <td class="p-2 border">Admin xóa Artist có Album</td>
+                        <td class="p-2 border">FK CASCADE</td>
+                        <td class="p-2 border">Xóa tất cả Album + Track</td>
+                        <td class="p-2 border text-center">🔴 High</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="text-sm text-gray-600 mt-4">
+                📄 <a href="./test-cases/test-cases.md" class="text-blue-600 hover:underline">Xem đầy đủ 15 test cases tại đây</a>
+            </p>
+        </section>
+
+        <!-- 7. Video Demo -->
+        <section id="demo" class="bg-white p-6 rounded-lg shadow mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-purple-600">7️⃣ Video Demo (3-5 phút)</h2>
+            
+            <div class="bg-gray-800 rounded overflow-hidden mb-4">
+                <video controls class="w-full" poster="./screenshots/demo-thumbnail.png">
+                    <source src="./demo/video-demo.mp4" type="video/mp4">
+                    Trình duyệt không hỗ trợ video tag.
+                </video>
+            </div>
+
+            <div class="bg-blue-50 p-4 rounded">
+                <h4 class="font-bold mb-2">📝 Nội dung demo</h4>
+                <ul class="text-sm space-y-1">
+                    <li>• [0:00-0:30] Giới thiệu hệ thống và layout</li>
+                    <li>• [0:30-1:00] Phát nhạc: play/pause/seek/volume</li>
+                    <li>• [1:00-1:30] Tìm kiếm không dấu + phát từ kết quả</li>
+                    <li>• [1:30-2:00] Playlist: thêm bài, drag-drop sắp xếp</li>
+                    <li>• [2:00-2:30] Trang Artist: Follow, Like bài hát</li>
+                    <li>• [2:30-3:00] Admin Panel: CRUD bài hát</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 8. Seed Data -->
+        <section id="data" class="bg-white p-6 rounded-lg shadow mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-purple-600">8️⃣ Seed Data (Dữ liệu mẫu)</h2>
+            
+            <div class="grid grid-cols-4 gap-4 mb-4">
+                <div class="bg-green-50 p-4 rounded text-center">
+                    <div class="text-3xl font-bold text-green-600">10</div>
+                    <div class="text-sm text-gray-600">Nghệ sĩ</div>
+                </div>
+                <div class="bg-blue-50 p-4 rounded text-center">
+                    <div class="text-3xl font-bold text-blue-600">20</div>
+                    <div class="text-sm text-gray-600">Bài hát</div>
+                </div>
+                <div class="bg-purple-50 p-4 rounded text-center">
+                    <div class="text-3xl font-bold text-purple-600">5</div>
+                    <div class="text-sm text-gray-600">Album</div>
+                </div>
+                <div class="bg-yellow-50 p-4 rounded text-center">
+                    <div class="text-3xl font-bold text-yellow-600">5</div>
+                    <div class="text-sm text-gray-600">Playlist</div>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 p-4 rounded">
+                <h4 class="font-bold mb-2">🎤 Danh sách nghệ sĩ</h4>
+                <p class="text-sm">Sơn Tùng M-TP, Hòa Minzy, Đen Vâu, Mỹ Tâm, HIEUTHUHAI, Chi Pu, Bích Phương, Erik, Amee, Vũ.</p>
+                
+                <h4 class="font-bold mt-4 mb-2">🎵 Một số bài hát</h4>
+                <p class="text-sm">Lạc Trôi, Nơi Này Có Anh, Rời Bỏ, Mơ, Đưa Nhau Đi Trốn, Chúng Ta Của Hiện Tại, 3107, Ngủ Một Mình...</p>
+
+                <p class="text-sm text-gray-600 mt-4">
+                    📄 <a href="./prototype/data/seed-data.json" class="text-blue-600 hover:underline">Xem file JSON đầy đủ</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white p-6 rounded-lg text-center">
+            <p class="mb-2">📦 <strong>GitHub Repository:</strong> 
+                <a href="https://github.com/[username]/music-streaming-spec" class="text-blue-400 hover:underline">
+                    github.com/[username]/music-streaming-spec
+                </a>
+            </p>
+            <p class="text-sm text-gray-400">Kiểm tra giữa kỳ - Nhập môn Công nghệ Phần mềm</p>
+        </footer>
+    </div>
+</body>
+</html>

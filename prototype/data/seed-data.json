@@ -1,0 +1,375 @@
+{
+  "artists": [
+    {
+      "id": 1,
+      "name": "Sơn Tùng M-TP",
+      "bio": "Ca sĩ, nhạc sĩ, rapper người Việt Nam",
+      "country": "Vietnam",
+      "debutYear": 2012,
+      "avatarUrl": "https://i.scdn.co/image/ab6761610000e5eb6a00988bf6a09ae82e78b297"
+    },
+    {
+      "id": 2,
+      "name": "Hòa Minzy",
+      "bio": "Ca sĩ nữ Việt Nam",
+      "country": "Vietnam",
+      "debutYear": 2012,
+      "avatarUrl": "https://i.scdn.co/image/ab6761610000e5eb5b6d7d4f4f0b3b8c8f4f0b3b"
+    },
+    {
+      "id": 3,
+      "name": "Đen Vâu",
+      "bio": "Rapper, nhạc sĩ Việt Nam",
+      "country": "Vietnam",
+      "debutYear": 2013,
+      "avatarUrl": "https://i.scdn.co/image/ab6761610000e5eb1f6b7d4f4f0b3b8c8f4f0b3b"
+    },
+    {
+      "id": 4,
+      "name": "Mỹ Tâm",
+      "bio": "Nữ ca sĩ hàng đầu Việt Nam",
+      "country": "Vietnam",
+      "debutYear": 2000,
+      "avatarUrl": "https://i.scdn.co/image/ab6761610000e5eb2f6b7d4f4f0b3b8c8f4f0b3b"
+    },
+    {
+      "id": 5,
+      "name": "HIEUTHUHAI",
+      "bio": "Rapper thế hệ mới",
+      "country": "Vietnam",
+      "debutYear": 2020,
+      "avatarUrl": "https://i.scdn.co/image/ab6761610000e5eb3f6b7d4f4f0b3b8c8f4f0b3b"
+    },
+    {
+      "id": 6,
+      "name": "Chi Pu",
+      "bio": "Ca sĩ, diễn viên",
+      "country": "Vietnam",
+      "debutYear": 2017,
+      "avatarUrl": "https://i.scdn.co/image/ab6761610000e5eb4f6b7d4f4f0b3b8c8f4f0b3b"
+    },
+    {
+      "id": 7,
+      "name": "Bích Phương",
+      "bio": "Ca sĩ, nhạc sĩ",
+      "country": "Vietnam",
+      "debutYear": 2013,
+      "avatarUrl": "https://i.scdn.co/image/ab6761610000e5eb5f6b7d4f4f0b3b8c8f4f0b3b"
+    },
+    {
+      "id": 8,
+      "name": "Erik",
+      "bio": "Ca sĩ nam Việt Nam",
+      "country": "Vietnam",
+      "debutYear": 2015,
+      "avatarUrl": "https://i.scdn.co/image/ab6761610000e5eb6f6b7d4f4f0b3b8c8f4f0b3b"
+    },
+    {
+      "id": 9,
+      "name": "Amee",
+      "bio": "Ca sĩ trẻ Gen Z",
+      "country": "Vietnam",
+      "debutYear": 2019,
+      "avatarUrl": "https://i.scdn.co/image/ab6761610000e5eb7f6b7d4f4f0b3b8c8f4f0b3b"
+    },
+    {
+      "id": 10,
+      "name": "Vũ.",
+      "bio": "Singer-songwriter",
+      "country": "Vietnam",
+      "debutYear": 2018,
+      "avatarUrl": "https://i.scdn.co/image/ab6761610000e5eb8f6b7d4f4f0b3b8c8f4f0b3b"
+    }
+  ],
+  "albums": [
+    {
+      "id": 1,
+      "artistId": 1,
+      "title": "m-tp M-TP",
+      "releaseDate": "2017-07-01",
+      "coverUrl": "https://i.scdn.co/image/ab67616d0000b273a1b2c3d4e5f6a7b8c9d0e1f2"
+    },
+    {
+      "id": 2,
+      "artistId": 2,
+      "title": "Rời Bỏ",
+      "releaseDate": "2019-03-15",
+      "coverUrl": "https://i.scdn.co/image/ab67616d0000b273b1c2d3e4f5a6b7c8d9e0f1a2"
+    },
+    {
+      "id": 3,
+      "artistId": 3,
+      "title": "Mơ",
+      "releaseDate": "2018-09-20",
+      "coverUrl": "https://i.scdn.co/image/ab67616d0000b273c1d2e3f4a5b6c7d8e9f0a1b2"
+    },
+    {
+      "id": 4,
+      "artistId": 4,
+      "title": "Tâm 9",
+      "releaseDate": "2015-05-10",
+      "coverUrl": "https://i.scdn.co/image/ab67616d0000b273d1e2f3a4b5c6d7e8f9a0b1c2"
+    },
+    {
+      "id": 5,
+      "artistId": 5,
+      "title": "Ai Cũng Phải Bắt Đầu Từ Đâu Đó",
+      "releaseDate": "2023-01-20",
+      "coverUrl": "https://i.scdn.co/image/ab67616d0000b273e1f2a3b4c5d6e7f8a9b0c1d2"
+    }
+  ],
+  "tracks": [
+    {
+      "id": 1,
+      "albumId": 1,
+      "title": "Lạc Trôi",
+      "duration": 265,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+      "lyrics": "[Verse 1]\nBuông xuôi theo làn gió cuốn\nBao yêu thương chơi vơi\n...",
+      "genreId": 1,
+      "explicit": false
+    },
+    {
+      "id": 2,
+      "albumId": 1,
+      "title": "Nơi Này Có Anh",
+      "duration": 312,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+      "lyrics": "[Verse 1]\nĐâu ai hay những suy tư này\n...",
+      "genreId": 1,
+      "explicit": false
+    },
+    {
+      "id": 3,
+      "albumId": 2,
+      "title": "Rời Bỏ",
+      "duration": 285,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+      "lyrics": "[Chorus]\nRời bỏ anh đi em nhé\n...",
+      "genreId": 2,
+      "explicit": false
+    },
+    {
+      "id": 4,
+      "albumId": 3,
+      "title": "Mơ",
+      "duration": 298,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+      "lyrics": "[Verse 1]\nAnh vẫn cứ mơ màng\n...",
+      "genreId": 3,
+      "explicit": false
+    },
+    {
+      "id": 5,
+      "albumId": 3,
+      "title": "Đưa Nhau Đi Trốn",
+      "duration": 245,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+      "lyrics": "[Chorus]\nĐưa nhau đi trốn đi\n...",
+      "genreId": 3,
+      "explicit": false
+    },
+    {
+      "id": 6,
+      "albumId": null,
+      "title": "Chúng Ta Của Hiện Tại",
+      "duration": 321,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
+      "lyrics": "[Verse 1]\nĐôi khi anh vẫn ngẩn ngơ\n...",
+      "genreId": 1,
+      "explicit": false
+    },
+    {
+      "id": 7,
+      "albumId": null,
+      "title": "Em Của Ngày Hôm Qua",
+      "duration": 255,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
+      "lyrics": "[Chorus]\nEm của ngày hôm qua\n...",
+      "genreId": 1,
+      "explicit": false
+    },
+    {
+      "id": 8,
+      "albumId": 4,
+      "title": "Ước Gì",
+      "duration": 278,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
+      "lyrics": "[Verse 1]\nƯớc gì em chưa từng nói lời chia tay\n...",
+      "genreId": 2,
+      "explicit": false
+    },
+    {
+      "id": 9,
+      "albumId": null,
+      "title": "Từng Quen",
+      "duration": 302,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
+      "lyrics": "[Chorus]\nKhông phải duyên số\n...",
+      "genreId": 2,
+      "explicit": false
+    },
+    {
+      "id": 10,
+      "albumId": null,
+      "title": "3107",
+      "duration": 235,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
+      "lyrics": "[Verse 1]\nAnh đã quen với việc\n...",
+      "genreId": 3,
+      "explicit": false
+    },
+    {
+      "id": 11,
+      "albumId": 5,
+      "title": "Ngủ Một Mình",
+      "duration": 268,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
+      "lyrics": "[Chorus]\nĐêm nay anh ngủ một mình\n...",
+      "genreId": 3,
+      "explicit": false
+    },
+    {
+      "id": 12,
+      "albumId": null,
+      "title": "Có Chắc Yêu Là Đây",
+      "duration": 289,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3",
+      "lyrics": "[Verse 1]\nCó chắc yêu là đây\n...",
+      "genreId": 1,
+      "explicit": false
+    },
+    {
+      "id": 13,
+      "albumId": null,
+      "title": "Anh Đã Quen Với Cô Đơn",
+      "duration": 276,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3",
+      "lyrics": "[Chorus]\nAnh đã quen với cô đơn\n...",
+      "genreId": 2,
+      "explicit": false
+    },
+    {
+      "id": 14,
+      "albumId": null,
+      "title": "Đếm Cừu",
+      "duration": 243,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3",
+      "lyrics": "[Verse 1]\nMột con cừu, hai con cừu\n...",
+      "genreId": 1,
+      "explicit": false
+    },
+    {
+      "id": 15,
+      "albumId": null,
+      "title": "Bước Qua Nhau",
+      "duration": 295,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3",
+      "lyrics": "[Chorus]\nBước qua nhau như là người dưng\n...",
+      "genreId": 2,
+      "explicit": false
+    },
+    {
+      "id": 16,
+      "albumId": null,
+      "title": "Lối Nhỏ",
+      "duration": 258,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3",
+      "lyrics": "[Verse 1]\nVề đây đi nào anh yêu ơi\n...",
+      "genreId": 3,
+      "explicit": false
+    },
+    {
+      "id": 17,
+      "albumId": null,
+      "title": "Sao Anh Chưa Về Nhà",
+      "duration": 271,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+      "lyrics": "[Chorus]\nSao anh chưa về nhà\n...",
+      "genreId": 1,
+      "explicit": false
+    },
+    {
+      "id": 18,
+      "albumId": null,
+      "title": "Yêu 5",
+      "duration": 288,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+      "lyrics": "[Verse 1]\nĐộ khó của bài toán yêu 5\n...",
+      "genreId": 1,
+      "explicit": false
+    },
+    {
+      "id": 19,
+      "albumId": null,
+      "title": "There's No One At All",
+      "duration": 312,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+      "lyrics": "[Chorus]\nThere's no one at all\n...",
+      "genreId": 1,
+      "explicit": false
+    },
+    {
+      "id": 20,
+      "albumId": null,
+      "title": "Chìm Sâu",
+      "duration": 264,
+      "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+      "lyrics": "[Verse 1]\nAnh chìm sâu trong ánh mắt em\n...",
+      "genreId": 2,
+      "explicit": false
+    }
+  ],
+  "genres": [
+    {"id": 1, "name": "V-Pop", "description": "Vietnamese Pop"},
+    {"id": 2, "name": "Ballad", "description": "Ballad Việt"},
+    {"id": 3, "name": "Rap/Hip-Hop", "description": "Vietnamese Rap"}
+  ],
+  "playlists": [
+    {
+      "id": 1,
+      "ownerUserId": 1,
+      "title": "Top Hits Việt 2024",
+      "description": "Những bài hát hot nhất",
+      "visibility": "public",
+      "coverUrl": "https://i.scdn.co/image/ab67706c0000da84a1b2c3d4e5f6a7b8c9d0e1f2",
+      "tracks": [1, 2, 6, 11, 14]
+    },
+    {
+      "id": 2,
+      "ownerUserId": 1,
+      "title": "Chill Vibes",
+      "description": "Thư giãn cuối tuần",
+      "visibility": "public",
+      "coverUrl": "https://i.scdn.co/image/ab67706c0000da84b1c2d3e4f5a6b7c8d9e0f1a2",
+      "tracks": [4, 5, 16, 19]
+    },
+    {
+      "id": 3,
+      "ownerUserId": 2,
+      "title": "My Favorites",
+      "description": "Bài hát yêu thích của tôi",
+      "visibility": "private",
+      "coverUrl": "https://i.scdn.co/image/ab67706c0000da84c1d2e3f4a5b6c7d8e9f0a1b2",
+      "tracks": [3, 8, 9, 15]
+    },
+    {
+      "id": 4,
+      "ownerUserId": 1,
+      "title": "Workout Mix",
+      "description": "Năng lượng tập gym",
+      "visibility": "public",
+      "coverUrl": "https://i.scdn.co/image/ab67706c0000da84d1e2f3a4b5c6d7e8f9a0b1c2",
+      "tracks": [1, 10, 11, 17, 18]
+    },
+    {
+      "id": 5,
+      "ownerUserId": 3,
+      "title": "Late Night Vibes",
+      "description": "Nhạc đêm khuya",
+      "visibility": "public",
+      "coverUrl": "https://i.scdn.co/image/ab67706c0000da84e1f2a3b4c5d6e7f8a9b0c1d2",
+      "tracks": [7, 12, 13, 20]
+    }
+  ]
+}

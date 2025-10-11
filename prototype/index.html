@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Streaming Prototype</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-black p-6">
+            <h1 class="text-xl font-bold text-green-500 mb-6">🎵 MusicApp</h1>
+            <nav class="space-y-4">
+                <a href="#home" onclick="showScreen('home')" class="block hover:text-green-500">🏠 Trang chủ</a>
+                <a href="#search" onclick="showScreen('search')" class="block hover:text-green-500">🔍 Tìm kiếm</a>
+                <a href="#playlist" onclick="showScreen('playlist')" class="block hover:text-green-500">📋 Playlist</a>
+                <a href="#artist" onclick="showScreen('artist')" class="block hover:text-green-500">👤 Nghệ sĩ</a>
+                <a href="#admin" onclick="showScreen('admin')" class="block hover:text-green-500">⚙️ Admin</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-y-auto pb-32">
+            <!-- A) HOME SCREEN -->
+            <div id="home" class="screen">
+                <h2 class="text-3xl font-bold mb-6">Trang chủ / Discover</h2>
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="bg-gray-800 p-4 rounded cursor-pointer hover:bg-gray-700" onclick="playTrack(1, 'Lạc Trôi')">
+                        <div class="bg-gray-700 h-40 mb-2 flex items-center justify-center">🎵</div>
+                        <h3 class="font-bold">Lạc Trôi</h3>
+                        <p class="text-sm text-gray-400">Sơn Tùng M-TP</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded cursor-pointer hover:bg-gray-700" onclick="playTrack(2, 'Nơi Này Có Anh')">
+                        <div class="bg-gray-700 h-40 mb-2 flex items-center justify-center">🎵</div>
+                        <h3 class="font-bold">Nơi Này Có Anh</h3>
+                        <p class="text-sm text-gray-400">Sơn Tùng M-TP</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded cursor-pointer hover:bg-gray-700" onclick="playTrack(3, 'Rời Bỏ')">
+                        <div class="bg-gray-700 h-40 mb-2 flex items-center justify-center">🎵</div>
+                        <h3 class="font-bold">Rời Bỏ</h3>
+                        <p class="text-sm text-gray-400">Hòa Minzy</p>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded cursor-pointer hover:bg-gray-700" onclick="playTrack(4, 'Mơ')">
+                        <div class="bg-gray-700 h-40 mb-2 flex items-center justify-center">🎵</div>
+                        <h3 class="font-bold">Mơ</h3>
+                        <p class="text-sm text-gray-400">Đen Vâu</p>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">Playlist nổi bật</h3>
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="bg-gray-800 p-4 rounded hover:bg-gray-700 cursor-pointer" onclick="showScreen('playlist')">
+                        <div class="bg-gray-700 h-32 mb-2 flex items-center justify-center">📋</div>
+                        <h3 class="font-bold">Top Hits Việt 2024</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- C) SEARCH SCREEN -->
+            <div id="search" class="screen hidden">
+                <h2 class="text-3xl font-bold mb-6">Tìm kiếm</h2>
+                <input type="text" id="searchInput" placeholder="Tìm bài hát, nghệ sĩ, album..." 
+                       class="w-full p-3 rounded bg-gray-800 mb-6" onkeyup="searchMusic()">
+                
+                <div id="searchResults">
+                    <div class="text-gray-400 text-center py-8">Nhập từ khóa để tìm kiếm...</div>
+                </div>
+            </div>
+
+            <!-- D) PLAYLIST SCREEN -->
+            <div id="playlist" class="screen hidden">
+                <h2 class="text-3xl font-bold mb-6">Top Hits Việt 2024</h2>
+                <p class="text-gray-400 mb-4">5 bài hát • Public</p>
+                
+                <div id="playlistTracks" class="space-y-2">
+                    <div class="bg-gray-800 p-4 rounded flex items-center justify-between hover:bg-gray-700" draggable="true">
+                        <div class="flex items-center gap-4">
+                            <span class="text-gray-400">1</span>
+                            <div>
+                                <div class="font-bold">Lạc Trôi</div>
+                                <div class="text-sm text-gray-400">Sơn Tùng M-TP</div>
+                            </div>
+                        </div>
+                        <span class="text-gray-400">4:25</span>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded flex items-center justify-between hover:bg-gray-700" draggable="true">
+                        <div class="flex items-center gap-4">
+                            <span class="text-gray-400">2</span>
+                            <div>
+                                <div class="font-bold">Nơi Này Có Anh</div>
+                                <div class="text-sm text-gray-400">Sơn Tùng M-TP</div>
+                            </div>
+                        </div>
+                        <span class="text-gray-400">5:12</span>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded flex items-center justify-between hover:bg-gray-700" draggable="true">
+                        <div class="flex items-center gap-4">
+                            <span class="text-gray-400">3</span>
+                            <div>
+                                <div class="font-bold">Chúng Ta Của Hiện Tại</div>
+                                <div class="text-sm text-gray-400">Sơn Tùng M-TP</div>
+                            </div>
+                        </div>
+                        <span class="text-gray-400">5:21</span>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 mt-4">💡 Kéo thả để sắp xếp lại thứ tự (drag-drop)</p>
+            </div>
+
+            <!-- E) ARTIST SCREEN -->
+            <div id="artist" class="screen hidden">
+                <div class="flex items-center gap-6 mb-8">
+                    <div class="w-48 h-48 bg-gray-700 rounded-full flex items-center justify-center text-6xl">👤</div>
+                    <div>
+                        <h2 class="text-5xl font-bold mb-2">Sơn Tùng M-TP</h2>
+                        <p class="text-gray-400">1.2M người theo dõi</p>
+                        <button class="mt-4 bg-green-500 px-6 py-2 rounded-full font-bold hover:bg-green-600">Theo dõi</button>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-4">Bài hát nổi bật</h3>
+                <div class="space-y-2">
+                    <div class="bg-gray-800 p-4 rounded flex items-center justify-between hover:bg-gray-700 cursor-pointer" onclick="playTrack(1, 'Lạc Trôi')">
+                        <div class="flex items-center gap-4">
+                            <span class="text-green-500">▶</span>
+                            <div>
+                                <div class="font-bold">Lạc Trôi</div>
+                                <div class="text-sm text-gray-400">265,000 lượt nghe</div>
+                            </div>
+                        </div>
+                        <button onclick="likeTrack(1, event)" class="text-2xl">🤍</button>
+                    </div>
+                    <div class="bg-gray-800 p-4 rounded flex items-center justify-between hover:bg-gray-700">
+                        <div class="flex items-center gap-4">
+                            <span class="text-green-500">▶</span>
+                            <div>
+                                <div class="font-bold">Nơi Này Có Anh</div>
+                                <div class="text-sm text-gray-400">312,000 lượt nghe</div>
+                            </div>
+                        </div>
+                        <button onclick="likeTrack(2, event)" class="text-2xl">🤍</button>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mt-8 mb-4">Album</h3>
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="bg-gray-800 p-4 rounded">
+                        <div class="bg-gray-700 h-40 mb-2 flex items-center justify-center">💿</div>
+                        <h3 class="font-bold">m-tp M-TP</h3>
+                        <p class="text-sm text-gray-400">2017</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ADMIN SCREEN -->
+            <div id="admin" class="screen hidden">
+                <h2 class="text-3xl font-bold mb-6">Quản trị nội dung</h2>
+                
+                <div class="grid grid-cols-4 gap-4 mb-8">
+                    <div class="bg-gray-800 p-6 rounded text-center">
+                        <div class="text-4xl mb-2">👤</div>
+                        <div class="text-2xl font-bold">10</div>
+                        <div class="text-gray-400">Nghệ sĩ</div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded text-center">
+                        <div class="text-4xl mb-2">💿</div>
+                        <div class="text-2xl font-bold">5</div>
+                        <div class="text-gray-400">Album</div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded text-center">
+                        <div class="text-4xl mb-2">🎵</div>
+                        <div class="text-2xl font-bold">20</div>
+                        <div class="text-gray-400">Bài hát</div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded text-center">
+                        <div class="text-4xl mb-2">📊</div>
+                        <div class="text-2xl font-bold">1.2M</div>
+                        <div class="text-gray-400">Lượt nghe</div>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-bold mb-4">Quản lý bài hát</h3>
+                <div class="bg-gray-800 p-6 rounded mb-4">
+                    <h4 class="font-bold mb-4">Thêm bài hát mới</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" placeholder="Tên bài hát" class="p-2 rounded bg-gray-700">
+                        <input type="text" placeholder="Nghệ sĩ" class="p-2 rounded bg-gray-700">
+                        <input type="text" placeholder="Album" class="p-2 rounded bg-gray-700">
+                        <input type="number" placeholder="Thời lượng (giây)" class="p-2 rounded bg-gray-700">
+                        <input type="text" placeholder="URL file nhạc" class="p-2 rounded bg-gray-700 col-span-2">
+                        <button class="bg-green-500 px-6 py-2 rounded font-bold hover:bg-green-600 col-span-2">Thêm bài hát</button>
+                    </div>
+                </div>
+
+                <h4 class="font-bold mb-4">Danh sách bài hát</h4>
+                <table class="w-full bg-gray-800 rounded">
+                    <thead>
+                        <tr class="border-b border-gray-700">
+                            <th class="p-3 text-left">ID</th>
+                            <th class="p-3 text-left">Tên</th>
+                            <th class="p-3 text-left">Nghệ sĩ</th>
+                            <th class="p-3 text-left">Thời lượng</th>
+                            <th class="p-3 text-left">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-700">
+                            <td class="p-3">1</td>
+                            <td class="p-3">Lạc Trôi</td>
+                            <td class="p-3">Sơn Tùng M-TP</td>
+                            <td class="p-3">4:25</td>
+                            <td class="p-3">
+                                <button class="text-blue-500 mr-2">✏️ Sửa</button>
+                                <button class="text-red-500">🗑️ Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-3">2</td>
+                            <td class="p-3">Nơi Này Có Anh</td>
+                            <td class="p-3">Sơn Tùng M-TP</td>
+                            <td class="p-3">5:12</td>
+                            <td class="p-3">
+                                <button class="text-blue-500 mr-2">✏️ Sửa</button>
+                                <button class="text-red-500">🗑️ Xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- B) PLAYER MINI (Fixed bottom) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-gray-800 border-t border-gray-700 p-4">
+        <div class="flex items-center justify-between max-w-screen-xl mx-auto">
+            <!-- Track Info -->
+            <div class="flex items-center gap-4 w-1/4">
+                <div class="w-14 h-14 bg-gray-700 rounded flex items-center justify-center" id="playerCover">🎵</div>
+                <div>
+                    <div class="font-bold" id="playerTitle">Chọn bài hát</div>
+                    <div class="text-sm text-gray-400" id="playerArtist">-</div>
+                </div>
+                <button onclick="likeCurrentTrack()" class="text-2xl" id="likeBtn">🤍</button>
+            </div>
+
+            <!-- Controls -->
+            <div class="w-1/2">
+                <div class="flex justify-center items-center gap-4 mb-2">
+                    <button class="text-gray-400 hover:text-white" onclick="toggleShuffle()" id="shuffleBtn">🔀</button>
+                    <button class="text-gray-400 hover:text-white" onclick="previousTrack()">⏮️</button>
+                    <button class="bg-white text-black rounded-full w-10 h-10 flex items-center justify-center hover:scale-110" onclick="togglePlay()" id="playBtn">▶️</button>
+                    <button class="text-gray-400 hover:text-white" onclick="nextTrack()">⏭️</button>
+                    <button class="text-gray-400 hover:text-white" onclick="toggleRepeat()" id="repeatBtn">🔁</button>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs text-gray-400" id="currentTime">0:00</span>
+                    <input type="range" class="flex-1 h-1 bg-gray-700 rounded" id="seekBar" min="0" max="100" value="0" oninput="seekTo(this.value)">
+                    <span class="text-xs text-gray-400" id="duration">0:00</span>
+                </div>
+            </div>
+
+            <!-- Volume -->
+            <div class="flex items-center gap-2 w-1/4 justify-end">
+                <span>🔊</span>
+                <input type="range" class="w-24 h-1 bg-gray-700 rounded" id="volumeBar" min="0" max="100" value="70" oninput="setVolume(this.value)">
+            </div>
+        </div>
+    </div>
+
+    <audio id="audioPlayer" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+    <script>
+        let currentTrackId = null;
+        let isPlaying = false;
+        let isShuffle = false;
+        let isRepeat = false;
+        let likedTracks = new Set();
+        const audio = document.getElementById('audioPlayer');
+
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+            document.getElementById(screenId).classList.remove('hidden');
+        }
+
+        function playTrack(id, title, artist = 'Sơn Tùng M-TP') {
+            currentTrackId = id;
+            document.getElementById('playerTitle').textContent = title;
+            document.getElementById('playerArtist').textContent = artist;
+            audio.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-' + id + '.mp3';
+            audio.play();
+            isPlaying = true;
+            document.getElementById('playBtn').textContent = '⏸️';
+            
+            // Mock: ghi lịch sử sau 30s
+            setTimeout(() => {
+                console.log(`✅ Ghi lịch sử: Track ${id} - ${title} tại ${new Date().toLocaleTimeString()}`);
+            }, 30000);
+        }
+
+        function togglePlay() {
+            if (isPlaying) {
+                audio.pause();
+                document.getElementById('playBtn').textContent = '▶️';
+            } else {
+                audio.play();
+                document.getElementById('playBtn').textContent = '⏸️';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function previousTrack() {
+            if (currentTrackId > 1) {
+                playTrack(currentTrackId - 1, 'Previous Track');
+            }
+        }
+
+        function nextTrack() {
+            playTrack(currentTrackId + 1, 'Next Track');
+        }
+
+        function toggleShuffle() {
+            isShuffle = !isShuffle;
+            document.getElementById('shuffleBtn').style.color = isShuffle ? '#1db954' : '';
+        }
+
+        function toggleRepeat() {
+            isRepeat = !isRepeat;
+            document.getElementById('repeatBtn').style.color = isRepeat ? '#1db954' : '';
+        }
+
+        function seekTo(value) {
+            audio.currentTime = (audio.duration / 100) * value;
+        }
+
+        function setVolume(value) {
+            audio.volume = value / 100;
+        }
+
+        function likeTrack(id, event) {
+            event.stopPropagation();
+            if (likedTracks.has(id)) {
+                likedTracks.delete(id);
+                event.target.textContent = '🤍';
+                console.log(`❌ Unlike track ${id}`);
+            } else {
+                likedTracks.add(id);
+                event.target.textContent = '❤️';
+                console.log(`✅ Like track ${id}`);
+            }
+        }
+
+        function likeCurrentTrack() {
+            const btn = document.getElementById('likeBtn');
+            if (currentTrackId) {
+                if (likedTracks.has(currentTrackId)) {
+                    likedTracks.delete(currentTrackId);
+                    btn.textContent = '🤍';
+                } else {
+                    likedTracks.add(currentTrackId);
+                    btn.textContent = '❤️';
+                }
+            }
+        }
+
+        function searchMusic() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const results = document.getElementById('searchResults');
+            
+            if (!query) {
+                results.innerHTML = '<div class="text-gray-400 text-center py-8">Nhập từ khóa để tìm kiếm...</div>';
+                return;
+            }
+
+            // Mock search - tìm kiếm không dấu
+            const tracks = [
+                {id: 1, title: 'Lạc Trôi', artist: 'Sơn Tùng M-TP', keywords: 'lac troi son tung'},
+                {id: 2, title: 'Nơi Này Có Anh', artist: 'Sơn Tùng M-TP', keywords: 'noi nay co anh son tung'},
+                {id: 3, title: 'Rời Bỏ', artist: 'Hòa Minzy', keywords: 'roi bo hoa minzy'},
+                {id: 4, title: 'Mơ', artist: 'Đen Vâu', keywords: 'mo den vau'}
+            ];
+
+            const found = tracks.filter(t => t.keywords.includes(query));
+
+            if (found.length === 0) {
+                results.innerHTML = '<div class="text-gray-400 text-center py-8">Không tìm thấy kết quả</div>';
+                return;
+            }
+
+            results.innerHTML = found.map(t => `
+                <div class="bg-gray-800 p-4 rounded flex items-center justify-between hover:bg-gray-700 cursor-pointer mb-2" onclick="playTrack(${t.id}, '${t.title}', '${t.artist}')">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gray-700 rounded flex items-center justify-center">🎵</div>
+                        <div>
+                            <div class="font-bold">${t.title}</div>
+                            <div class="text-sm text-gray-400">${t.artist}</div>
+                        </div>
+                    </div>
+                    <span class="text-green-500">▶</span>
+                </div>
+            `).join('');
+        }
+
+        // Update time
+        audio.addEventListener('timeupdate', () => {
+            const current = Math.floor(audio.currentTime);
+            const total = Math.floor(audio.duration);
+            document.getElementById('currentTime').textContent = formatTime(current);
+            document.getElementById('duration').textContent = formatTime(total);
+            document.getElementById('seekBar').value = (current / total) * 100 || 0;
+        });
+
+        function formatTime(seconds) {
+            const m = Math.floor(seconds / 60);
+            const s = seconds % 60;
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        // Drag-drop for playlist (basic)
+        let draggedElement = null;
+        document.querySelectorAll('[draggable="true"]').forEach(item => {
+            item.addEventListener('dragstart', (e) => {
+                draggedElement = item;
+                item.style.opacity = '0.5';
+            });
+            item.addEventListener('dragend', (e) => {
+                item.style.opacity = '1';
+            });
+            item.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+            item.addEventListener('drop', (e) => {
+                e.preventDefault();
+                if (draggedElement !== item) {
+                    const parent = item.parentNode;
+                    parent.insertBefore(draggedElement, item);
+                    console.log('✅ Đã sắp xếp lại playlist');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
