@@ -17,7 +17,7 @@ Báo cáo kiểm tra giữa kỳ - Nhập môn Công nghệ Phần mềm
 
 ## 🚀 Xem báo cáo
 
-**GitHub Pages:** [https://harihuynh2007.github.io/music-streaming-spec](https://harihuynh2007.github.io/music-streaming-spec)
+**GitHub Pages:** [https://harihuynh2007.github.io/](https://harihuynh2007.github.io/)
 
 **Hoặc mở file:** `index.html`
 
