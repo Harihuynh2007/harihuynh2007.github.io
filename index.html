@@ -40,7 +40,7 @@
             <p class="mb-4">
                 📄 <a href="./diagrams/use-case-specification.md" class="text-blue-600 hover:underline">
                     Xem Use Case Specification đầy đủ (10 UC)
-                    </a>
+                </a>
             </p>
             <p class="text-gray-600 mb-4">Mô tả đầy đủ các actor và use case chính của hệ thống</p>
             
@@ -150,46 +150,165 @@
             <h2 class="text-2xl font-bold mb-4 text-purple-600">4️⃣ ERD (Logical/Physical Database - MySQL)</h2>
             <p class="text-gray-700 mb-4">
                 Sơ đồ cơ sở dữ liệu vật lý mô tả cấu trúc <strong>Music Streaming Web App</strong> bao gồm 10 bảng chính,
-                khóa chính/phụ, và các quan hệ 1–N, N–N giữa User, Artist, Track, Playlist, Like, Follow, và PlayHistory.
+                khóa chính/phụ, và các quan hệ 1–N, N–N.
             </p>
 
-            <!-- Hình ERD -->
+            <!-- Hình ERD Physical -->
             <div class="bg-gray-100 p-4 rounded mb-4">
-                <img src="./diagrams/er-diagram.png" alt="ERD Diagram - Music Streaming App" class="w-full rounded shadow-md">
+                <img src="./diagrams/erd-physical.png" alt="ERD Physical Database" class="w-full rounded shadow-md">
                 <p class="text-xs text-gray-500 mt-2 text-center">
-                <em>Hình 4.1 – ERD Logical/Physical Database (MySQL 8+)</em><br>
-                Các quan hệ chính: User–Playlist, Artist–Album–Track, Playlist–Track, Like, Follow, PlayHistory.
+                    <em>Hình 4.1 – ERD Physical Database (MySQL 8+)</em>
                 </p>
+            </div>
+
+            <!-- Chi tiết 10 thực thể -->
+            <div class="bg-blue-50 p-4 rounded mb-4">
+                <h4 class="font-bold mb-3 text-blue-800">📊 Chi tiết 10 thực thể</h4>
+                
+                <div class="grid grid-cols-2 gap-3 text-xs">
+                    <!-- User -->
+                    <div class="bg-white p-3 rounded border">
+                        <h5 class="font-bold text-purple-700 mb-1">1. User</h5>
+                        <ul class="space-y-0.5 text-gray-700">
+                            <li>• UserID (PK, INT)</li>
+                            <li>• Email (VARCHAR(255), UNIQUE)</li>
+                            <li>• Password (VARCHAR(255))</li>
+                            <li>• DisplayName (VARCHAR(100))</li>
+                            <li>• Role (ENUM: 'user', 'admin')</li>
+                        </ul>
+                    </div>
+
+                    <!-- Artist -->
+                    <div class="bg-white p-3 rounded border">
+                        <h5 class="font-bold text-purple-700 mb-1">2. Artist</h5>
+                        <ul class="space-y-0.5 text-gray-700">
+                            <li>• ArtistID (PK, INT)</li>
+                            <li>• Name (VARCHAR(200), INDEX)</li>
+                            <li>• Bio (TEXT)</li>
+                            <li>• Avatar (VARCHAR(500))</li>
+                            <li>• Country (VARCHAR(100))</li>
+                        </ul>
+                    </div>
+
+                    <!-- Album -->
+                    <div class="bg-white p-3 rounded border">
+                        <h5 class="font-bold text-purple-700 mb-1">3. Album</h5>
+                        <ul class="space-y-0.5 text-gray-700">
+                            <li>• AlbumID (PK, INT)</li>
+                            <li>• Title (VARCHAR(200))</li>
+                            <li>• ArtistID (FK → Artist)</li>
+                            <li>• CoverImage (VARCHAR(500))</li>
+                            <li>• ReleaseDate (DATE)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Track -->
+                    <div class="bg-white p-3 rounded border">
+                        <h5 class="font-bold text-purple-700 mb-1">4. Track</h5>
+                        <ul class="space-y-0.5 text-gray-700">
+                            <li>• TrackID (PK, INT)</li>
+                            <li>• Title (VARCHAR(200), INDEX)</li>
+                            <li>• AlbumID (FK → Album)</li>
+                            <li>• ArtistID (FK → Artist)</li>
+                            <li>• Duration (INT, CHECK > 0)</li>
+                            <li>• AudioURL (VARCHAR(500))</li>
+                        </ul>
+                    </div>
+
+                    <!-- Genre -->
+                    <div class="bg-white p-3 rounded border">
+                        <h5 class="font-bold text-purple-700 mb-1">5. Genre</h5>
+                        <ul class="space-y-0.5 text-gray-700">
+                            <li>• GenreID (PK, INT)</li>
+                            <li>• Name (VARCHAR(100), UNIQUE)</li>
+                            <li>• Description (TEXT)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Playlist -->
+                    <div class="bg-white p-3 rounded border">
+                        <h5 class="font-bold text-purple-700 mb-1">6. Playlist</h5>
+                        <ul class="space-y-0.5 text-gray-700">
+                            <li>• PlaylistID (PK, INT)</li>
+                            <li>• UserID (FK → User)</li>
+                            <li>• Title (VARCHAR(200))</li>
+                            <li>• Visibility (ENUM: 'public', 'private')</li>
+                            <li>• CreatedAt, UpdatedAt (DATETIME)</li>
+                        </ul>
+                    </div>
+
+                    <!-- PlaylistTrack -->
+                    <div class="bg-white p-3 rounded border">
+                        <h5 class="font-bold text-purple-700 mb-1">7. PlaylistTrack</h5>
+                        <ul class="space-y-0.5 text-gray-700">
+                            <li>• PlaylistID (PK, FK → Playlist)</li>
+                            <li>• TrackID (PK, FK → Track)</li>
+                            <li>• SortOrder (INT)</li>
+                            <li>• AddedAt (DATETIME)</li>
+                            <li>• <strong>UNIQUE(PlaylistID, TrackID)</strong></li>
+                        </ul>
+                    </div>
+
+                    <!-- Like -->
+                    <div class="bg-white p-3 rounded border">
+                        <h5 class="font-bold text-purple-700 mb-1">8. Like</h5>
+                        <ul class="space-y-0.5 text-gray-700">
+                            <li>• UserID (PK, FK → User)</li>
+                            <li>• TrackID (PK, FK → Track)</li>
+                            <li>• LikedAt (DATETIME)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Follow -->
+                    <div class="bg-white p-3 rounded border">
+                        <h5 class="font-bold text-purple-700 mb-1">9. Follow</h5>
+                        <ul class="space-y-0.5 text-gray-700">
+                            <li>• UserID (PK, FK → User)</li>
+                            <li>• ArtistID (PK, FK → Artist)</li>
+                            <li>• FollowedAt (DATETIME)</li>
+                        </ul>
+                    </div>
+
+                    <!-- PlayHistory -->
+                    <div class="bg-white p-3 rounded border">
+                        <h5 class="font-bold text-purple-700 mb-1">10. PlayHistory</h5>
+                        <ul class="space-y-0.5 text-gray-700">
+                            <li>• HistoryID (PK, INT)</li>
+                            <li>• UserID (FK → User)</li>
+                            <li>• TrackID (FK → Track)</li>
+                            <li>• PlayedAt (DATETIME)</li>
+                            <li>• Duration (INT) - Số giây nghe</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <!-- Liên kết tải SQL -->
             <div class="bg-green-50 border-l-4 border-green-600 p-4 rounded mb-4">
                 <h4 class="font-bold mb-2 text-green-700">💾 File SQL Schema (MySQL)</h4>
                 <p class="text-sm text-gray-700">
-                File SQL định nghĩa cơ sở dữ liệu MySQL 8+, bao gồm đầy đủ <strong>CREATE TABLE</strong>,
-                <strong>FOREIGN KEY</strong>, <strong>CHECK</strong>, <strong>INDEX</strong> và <strong>CASCADE DELETE</strong>.
+                    File SQL định nghĩa cơ sở dữ liệu MySQL 8+, bao gồm đầy đủ <strong>CREATE TABLE</strong>,
+                    <strong>FOREIGN KEY</strong>, <strong>CHECK</strong>, <strong>INDEX</strong> và <strong>CASCADE DELETE</strong>.
                 </p>
                 <p class="text-sm text-gray-700 mt-2">
-                📄 <a href="./sql/database_schema_mysql.sql" class="text-blue-600 hover:underline font-semibold">
-                    Tải file database_schema_mysql.sql
-                </a>
+                    📄 <a href="./sql/database_schema_mysql.sql" class="text-blue-600 hover:underline font-semibold">
+                        Tải file database_schema_mysql.sql
+                    </a>
                 </p>
             </div>
 
-            <!-- Ghi chú quan trọng -->
+            <!-- Ràng buộc -->
             <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
                 <h4 class="font-bold mb-2 text-yellow-800">📌 Ràng buộc & Chỉ mục chính</h4>
                 <ul class="text-sm text-gray-700 list-disc pl-6 space-y-1">
-                <li><strong>UNIQUE(User.Email)</strong> – Đảm bảo email không trùng lặp.</li>
-                <li><strong>CHECK(Track.Duration &gt; 0)</strong> – Bài hát phải có thời lượng hợp lệ.</li>
-                <li><strong>FK ON DELETE CASCADE</strong> – Áp dụng cho PlaylistTrack, Like, Follow, PlayHistory.</li>
-                <li><strong>COMPOSITE KEY(PlaylistID, TrackID)</strong> – Một bài hát chỉ xuất hiện một lần trong playlist.</li>
-                <li><strong>INDEX(Track.Title, Artist.Name)</strong> – Tối ưu hiệu năng tìm kiếm.</li>
-                <li><strong>ENUM visibility('public','private')</strong> – Quản lý quyền truy cập playlist.</li>
+                    <li><strong>UNIQUE(User.Email)</strong> – Email không trùng lặp</li>
+                    <li><strong>CHECK(Track.Duration &gt; 0)</strong> – Thời lượng bài hát > 0</li>
+                    <li><strong>FK ON DELETE CASCADE</strong> – Áp dụng cho PlaylistTrack, Like, Follow, PlayHistory</li>
+                    <li><strong>COMPOSITE KEY(PlaylistID, TrackID)</strong> – Một bài chỉ xuất hiện 1 lần trong playlist</li>
+                    <li><strong>INDEX(Track.Title, Artist.Name)</strong> – Tối ưu tìm kiếm</li>
                 </ul>
             </div>
         </section>
-
 
         <!-- 5. Prototype UI -->
         <section id="prototype" class="bg-white p-6 rounded-lg shadow mb-8">
@@ -258,12 +377,17 @@
             
             <div class="bg-yellow-50 p-4 rounded mb-4">
                 <h4 class="font-bold mb-2">📜 Quy tắc nghiệp vụ</h4>
-                <ol class="text-sm space-y-1">
-                    <li>1. Một bài hát chỉ xuất hiện <strong>1 lần</strong> trong playlist (UNIQUE constraint)</li>
-                    <li>2. Lịch sử nghe chỉ ghi khi play <strong>≥ 30 giây</strong> hoặc next sau ≥ 30s</li>
-                    <li>3. Like/Unlike toggle: click lần 2 = xóa like</li>
-                    <li>4. Playlist private chỉ owner nhìn thấy</li>
-                    <li>5. Admin xóa Artist → CASCADE xóa Album + Track</li>
+                <ol class="text-sm space-y-2">
+                    <li><strong>1.</strong> Một bài hát chỉ xuất hiện <strong>1 lần</strong> trong playlist 
+                        <span class="text-xs text-gray-600">(UNIQUE constraint)</span></li>
+                    <li><strong>2.</strong> Lịch sử nghe chỉ ghi khi play <strong>≥ 30 giây</strong> hoặc next sau ≥ 30s 
+                        <span class="text-xs text-gray-600">(JavaScript timer)</span></li>
+                    <li><strong>3.</strong> Like/Unlike toggle: click lần 2 = xóa like 
+                        <span class="text-xs text-gray-600">(INSERT/DELETE)</span></li>
+                    <li><strong>4.</strong> Playlist private chỉ owner nhìn thấy 
+                        <span class="text-xs text-gray-600">(ENUM visibility)</span></li>
+                    <li><strong>5.</strong> Admin xóa Artist → CASCADE xóa Album + Track 
+                        <span class="text-xs text-gray-600">(ON DELETE CASCADE)</span></li>
                 </ol>
             </div>
 
@@ -405,8 +529,8 @@
         <!-- Footer -->
         <footer class="bg-gray-800 text-white p-6 rounded-lg text-center">
             <p class="mb-2">📦 <strong>GitHub Repository:</strong> 
-                <a href="https://github.com/Harihuynh2007/music-streaming-spec/" class="text-blue-400 hover:underline">
-                    github.com/HariHuynh/music-streaming-spec
+                <a href="https://github.com/Harihuynh2007/harihuynh2007.github.io/" class="text-blue-400 hover:underline">
+                    github.com/Harihuynh2007/harihuynh2007.github.io
                 </a>
             </p>
             <p class="text-sm text-gray-400">Kiểm tra giữa kỳ - Nhập môn Công nghệ Phần mềm</p>
